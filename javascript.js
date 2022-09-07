@@ -5,22 +5,6 @@ let computerSelection = 10;
 
 let game = new Function('playerInput(), getComputerChoice(), playerRound()');
 let score = 0;
-function getComputerChoice()
-{
-	let randomAssigner = Math.floor(Math.random() * 3);
-	if (randomAssigner === 0)
-	{
-		computerSelection = 1;
-	}
-	else if (randomAssigner === 1)
-	{
-		computerSelection = 2;
-	}
-	else 
-	{
-		computerSelection = 3;
-	}
-}
 
 for (let i = 0; i < 5; i++)
 {
@@ -61,6 +45,23 @@ function playerInput()
 	else 
 	{
 		playerInput();
+	}
+}
+
+function getComputerChoice()
+{
+	let randomAssigner = Math.floor(Math.random() * 3);
+	if (randomAssigner === 0)
+	{
+		computerSelection = 1;
+	}
+	else if (randomAssigner === 1)
+	{
+		computerSelection = 2;
+	}
+	else 
+	{
+		computerSelection = 3;
 	}
 }
 
@@ -108,3 +109,64 @@ function playerRound()
 			alert("It's a TIE!");
 		}
 }
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
