@@ -3,6 +3,8 @@ alert(`Welcome, ${userName}!\nGet ready to face off against The Computer!\nYou m
 let playerSelection = "RPS";
 let computerSelection = 10;
 
+let game = new Function('playerInput(), getComputerChoice(), playerRound()');
+let score = 0;
 function getComputerChoice()
 {
 	let randomAssigner = Math.floor(Math.random() * 3);
