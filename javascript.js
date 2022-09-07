@@ -19,3 +19,25 @@ function getComputerChoice()
 		computerSelection = 3;
 	}
 }
+
+function playerInput()
+{
+	playerSelection = prompt("Rock, Paper, or Scissors?");
+	playerSelection = playerSelection.toLowerCase().charCodeAt(0);
+	if (playerSelection === 114)
+	{
+		playerSelection = 1;
+	}
+	else if (playerSelection === 112)
+	{
+		playerSelection = 2;
+	}
+	else if (playerSelection === 115)
+	{
+		playerSelection = 3;
+	}
+	else 
+	{
+		playerInput();
+	}
+}
