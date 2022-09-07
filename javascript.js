@@ -41,3 +41,48 @@ function playerInput()
 		playerInput();
 	}
 }
+
+function playerRound()
+{	
+	playerSelection;
+	computerSelection;
+	
+	if (playerSelection === 1 && computerSelection === 2)
+		{
+			console.log("You Lose! Paper beats Rock.");
+			alert("You Lose! Paper beats Rock.");
+		}
+		else if (playerSelection === 1 && computerSelection === 3)
+		{
+			console.log("You Win! Rock beats Scissors.");
+			alert("You Win! Rock beats Scissors.");
+			score++;
+		}
+		else if (playerSelection === 2 && computerSelection === 1)
+		{
+			console.log("You Win! Paper beats Rock.");
+			alert("You Win! Paper beats Rock.");
+			score++;
+		}
+		else if (playerSelection === 2 && computerSelection === 3)
+		{
+			console.log("You Lose! Scissors beat Paper.");
+			alert("You Lose! Scissors beat Paper.");
+		}
+		else if (playerSelection === 3 && computerSelection === 1)
+		{
+			console.log("You Lose! Rock beats Scissors.");
+			alert("You Lose! Rock beats Scissors.");
+		}
+		else if (playerSelection === 3 && computerSelection === 2)
+		{
+			console.log("You Win! Scissors beat Paper.");
+			alert("You Win! Scissors beat Paper.");
+			score++;
+		}
+		else 
+		{
+			console.log("It's a TIE!");
+			alert("It's a TIE!");
+		}
+}
