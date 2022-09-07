@@ -22,6 +22,26 @@ function getComputerChoice()
 	}
 }
 
+for (let i = 0; i < 5; i++)
+{
+	game();
+	if (playerSelection === computerSelection)
+	{
+		i--;
+	}
+}
+
+if (score < 3)
+	{
+		console.log(`${userName}'s Score: ${score}\nComputer Score: ${5 - score}\nYou Lose!`);
+		alert(`${userName}'s Score: ${score}\nComputer Score: ${5 - score}\nYou Lose!`);
+	}
+	else 
+	{
+		console.log(`${userName}'s Score: ${score}\nComputer Score: ${5 - score}\nYou Win!`);
+		alert(`${userName}'s Score: ${score}\nComputer Score: ${5 - score}\nYou Win!`);
+	}
+
 function playerInput()
 {
 	playerSelection = prompt("Rock, Paper, or Scissors?");
