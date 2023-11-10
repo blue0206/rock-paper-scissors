@@ -22,3 +22,20 @@ function getComputerChoice()
         return outcome = "Scissors";
     }
 }
+
+function getPlayerChoice()
+{
+    let response;
+    while (true)
+    {
+        response = prompt("Enter 'Rock', 'Paper', or 'Scissors'!");
+        response = response.toLowerCase();
+        
+        if (response === 'rock' || response === 'paper' || response == 'scissors' || response === 'scissor')
+        {
+            break;
+        }
+    }
+
+    return response;
+}
