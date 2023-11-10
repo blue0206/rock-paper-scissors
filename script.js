@@ -1,9 +1,10 @@
-console.log("Hello World!");
+game();
 
 function getComputerChoice()
 {
     let randomNum = 0;
     let outcome = "";
+    
     while (randomNum == 0 || randomNum > 3)
     {
         randomNum = Math.floor(Math.random() * 10);
@@ -74,5 +75,13 @@ function playRound(playerSelection, computerSelection)
     else
     {
         alert("You LOSE! Scissors gets smashed by Rock!");
+    }
+}
+
+function game()
+{
+    for (let times=0; times < 5; times++)
+    {
+        playRound(getPlayerChoice(), getComputerChoice());
     }
 }
