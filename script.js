@@ -6,7 +6,6 @@ game();
 function getComputerChoice()
 {
     let randomNum = 0;
-    let outcome = "";
 
     while (randomNum == 0 || randomNum > 3)
     {
@@ -15,15 +14,15 @@ function getComputerChoice()
 
     if (randomNum == 1)
     {
-        return outcome = "rock";
+        return "rock";
     }
     else if (randomNum == 2)
     {
-        return outcome = "paper";
+        return "paper";
     }
     else
     {
-        return outcome = "scissors";
+        return "scissors";
     }
 }
 
