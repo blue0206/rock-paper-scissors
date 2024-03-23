@@ -1,6 +1,27 @@
 let playerWins = 0;
 let computerWins = 0;
 
+const btn = document.querySelector("#btn");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+btn.addEventListener("click", (e) => {
+  let target = e.target;
+
+  switch (target.id) {
+    case "rock":
+        playRound("rock", getComputerChoice());
+        break;
+    case "paper":
+        playRound("paper", getComputerChoice());
+        break;
+    case "scissors":
+        playRound("scissors", getComputerChoice());
+        break;
+  }
+});
+
 game();
 
 function getComputerChoice()
@@ -24,28 +45,6 @@ function getComputerChoice()
     {
         return "scissors";
     }
-}
-
-function getPlayerChoice()
-{
-    let response;
-    while (true)
-    {
-        response = prompt("Enter 'Rock', 'Paper', or 'Scissors'!");
-        response = response.toLowerCase();
-
-        if (response === 'rock' || response === 'paper' || response == 'scissors' || response === 'scissor')
-        {
-            break;
-        }
-    }
-
-    if (response === 'scissor')
-    {
-        response = 'scissors';
-    }
-
-    return response;
 }
 
 function playRound(playerSelection, computerSelection)
@@ -88,11 +87,6 @@ function playRound(playerSelection, computerSelection)
 
 function game()
 {
-    for (let times=0; times < 5; times++)
-    {
-        playRound(getPlayerChoice(), getComputerChoice());
-    }
-
     if (playerWins > computerWins)
     {
         alert(
