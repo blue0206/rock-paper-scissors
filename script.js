@@ -5,8 +5,9 @@ const btn = document.querySelector("#btn");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-const comment = document.querySelector('#comment');
-const winner = document.querySelector('#winner');
+const result = document.querySelector('#result');
+const player = document.querySelector('#player');
+const computer = document.querySelector('#computer');
 
 btn.addEventListener("click", (e) => {
   let target = e.target;
@@ -23,8 +24,6 @@ btn.addEventListener("click", (e) => {
         break;
   }
 });
-
-announceWinner();
 
 function getComputerChoice()
 {
@@ -55,63 +54,90 @@ function playRound(playerSelection, computerSelection)
     {
         reset();
     }
-
-    comment.textContent = "";
     
     if (playerSelection === computerSelection)
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>It's a TIE!</div>";
+        let temp = document.createElement('div');
+        temp.setAttribute('class', 'item');
+        temp.innerHTML = "<br /> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/>It's a TIE!<hr />";
+        result.appendChild(temp);
     }
     else if ((playerSelection === 'rock') && (computerSelection === 'scissors'))
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>You Win! Rock beats Scissors!</div>";
+        let temp = document.createElement("div");
+        temp.setAttribute("class", "item");
+        temp.innerHTML = "<br/> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/> You Win! Rock beats Scissors!<hr />";
         playerWins++;
+        result.appendChild(temp);
     }
     else if ((playerSelection === 'paper') && (computerSelection === 'rock'))
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>You Win! Paper beats Rock!</div>";
+        let temp = document.createElement("div");
+        temp.setAttribute("class", "item");
+        temp.innerHTML = "<br/> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/> You Win! Paper beats Rock!<hr />";
         playerWins++;
+        result.appendChild(temp);
     }
     else if ((playerSelection === 'scissors') && (computerSelection === 'paper'))
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>You Win! Scissors beat Paper!</div>";
+        let temp = document.createElement("div");
+        temp.setAttribute("class", "item");
+        temp.innerHTML = "<br/> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/> You Win! Scissors beat Paper!<hr />";
         playerWins++;
+        result.appendChild(temp);
     }
     else if ((playerSelection === 'rock') && (computerSelection === 'paper'))
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>You Lose! Paper beats Rock!</div>";
+        let temp = document.createElement("div");
+        temp.setAttribute("class", "item");
+        temp.innerHTML = "<br/> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/> You Lose! Paper beats Rock!<hr />";
         computerWins++;
+        result.appendChild(temp);
     }
     else if ((playerSelection === 'paper') && (computerSelection === 'scissors'))
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>You Lose! Scissors beat Paper!</div>";
+        let temp = document.createElement("div");
+        temp.setAttribute("class", "item");
+        temp.innerHTML = "<br/> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/> You Lose! Scissors beat Paper!<hr />";
         computerWins++;
+        result.appendChild(temp);
     }
     else
     {
-        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
-                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
-                            + "<br/><div>You Lose! Rock beats Scissors!</div>";
+        let temp = document.createElement("div");
+        temp.setAttribute("class", "item");
+        temp.innerHTML = "<br/> You: " + toTitleCase(playerSelection)
+                            + "<br /> Computer: " + toTitleCase(computerSelection)
+                            + "<br/> You Lose! Rock beats Scissors!<hr />";
         computerWins++;
+        result.appendChild(temp);
     }
+
+    updateScore();
+    updateScroll();
 
     if (playerWins == 5 || computerWins == 5)
     {
-        comment.textContent = "";
         announceWinner();
     }
+}
+
+function updateScore()
+{
+    player.textContent = playerWins;
+    computer.textContent = computerWins;
 }
 
 function announceWinner()
@@ -122,7 +148,7 @@ function announceWinner()
     }
     else if(playerWins < computerWins)
     {
-        announceWinnerlert("Computer Wins! Better luck next time.");
+        alert("Computer Wins! Better luck next time.");
     }
     else
     {
@@ -130,13 +156,21 @@ function announceWinner()
     }
 }
 
+function updateScroll()
+{
+    result.scrollTop = result.scrollHeight;
+}
+
 function reset()
 {
     playerWins = 0;
     computerWins = 0;
 
-    comment.textContent = "";
-    winner.textContent = "";
+    let commentList = document.querySelectorAll('.item');
+    for (let i=0; i<commentList.length; i++)
+    {
+        result.removeChild(commentList[i]);
+    }
 }
 
 function toTitleCase(str)

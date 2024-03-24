@@ -1,7 +1,12 @@
+html
+{
+    background-size: cover;
+    background-position: center top;
+    background-image: url("./background-img.jpg");
+}
+
 body
 {
-    height: 95vh;
-    width: 98vw;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
@@ -12,34 +17,42 @@ body
 header
 {
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 h1
 {
-    text-align: center;
+    margin-top: 0px;
+    font-size: 48px;
+    color: rgb(217, 225, 231);
+    background-color: mediumslateblue;
+    padding: 8px;
+    border-width: 8px;
+    border-style: ridge;
+    border-color: rgb(216, 216, 253) rgb(192, 97, 97);
 }
 
 #line
 {
-    width: 58%;
-    border: 2px solid black;
+    width: 38%;
+    border: 4px groove black;
     border-radius: 11px;
-    margin-bottom: 32px;
+    margin-bottom: 11px;
 }
 
 main
 {
     flex-grow: 16;
     align-self: center;
-    width: 58%;
-    display: flex;
-    flex-direction: column;
+    width: 38%;
 }
 
 .element
 {
-    border: 2px solid black;
+    border: 2px solid rgb(63, 62, 62);
     border-radius: 16px;
     margin: 16px 0 16px 0;
     background-color: #E5E7EB;
@@ -47,22 +60,22 @@ main
 
 .element.score
 {
-    flex-grow: 4;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 25px;
+    height: 220px;
 }
 
 table
 {
     height: 98%;
     width: 98%;
-    border: 1px solid black;
 }
 
 table, th, td
 {
-    border: 1px solid black;
+    border: 2px solid black;
     border-collapse: collapse;
     text-align: center;
 }
@@ -70,20 +83,23 @@ table, th, td
 th
 {
     font-size: 32px;
+    letter-spacing: 1.5px;
+    width: 50%;
 }
 
 td
 {
     font-size: 85px;
+    width: 50%;
 }
 
 .element#btn
 {
-    flex-grow: 2;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 38px;
 }
 
 button
@@ -99,13 +115,35 @@ button
     color: rgb(255, 255, 255);
 }
 
-.element.result
+.element#result
 {
-    flex-grow: 4;
+    height: 350px;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
     align-items: flex-start;
-    padding-left: 35px;
-    padding-top: 16px;
-    font-size: 28px;
+    padding-left: 32px;
+    font-size: 16px;
+    overflow: auto;
+}
+
+footer
+{
+    flex-grow: 1;
+    height: 80px;
+    margin-bottom: 0px;
+    width: 100%;
+    border: 1px solid black;
+    background-color: rgb(58, 58, 145);
+    text-align: center;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+a
+{
+    color: rgb(182, 136, 136);
 }
