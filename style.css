@@ -107,20 +107,5 @@ button
     align-items: flex-start;
     padding-left: 35px;
     padding-top: 16px;
+    font-size: 28px;
 }
-
-/* #panel
-{
-    display: flex;
-    justify-content: center;
-    height: 33%;
-    width: 100%;
-}
-
-
-#comment
-{
-    margin-top: 32px;
-    width: 100%;
-    text-align: center;
-} */

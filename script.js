@@ -5,6 +5,8 @@ const btn = document.querySelector("#btn");
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+const comment = document.querySelector('#comment');
+const winner = document.querySelector('#winner');
 
 btn.addEventListener("click", (e) => {
   let target = e.target;
@@ -22,7 +24,7 @@ btn.addEventListener("click", (e) => {
   }
 });
 
-game();
+announceWinner();
 
 function getComputerChoice()
 {
@@ -49,66 +51,108 @@ function getComputerChoice()
 
 function playRound(playerSelection, computerSelection)
 {
+    if (playerWins == 5 || computerWins == 5) 
+    {
+        reset();
+    }
+
+    comment.textContent = "";
+    
     if (playerSelection === computerSelection)
     {
-        alert("It's a TIE!");
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>It's a TIE!</div>";
     }
     else if ((playerSelection === 'rock') && (computerSelection === 'scissors'))
     {
-        alert("You WIN! Rock breaks Scissors!");
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>You Win! Rock beats Scissors!</div>";
         playerWins++;
     }
     else if ((playerSelection === 'paper') && (computerSelection === 'rock'))
     {
-        alert("You WIN! Paper wraps Rock!");
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>You Win! Paper beats Rock!</div>";
         playerWins++;
     }
     else if ((playerSelection === 'scissors') && (computerSelection === 'paper'))
     {
-        alert("You WIN! Scissors cut Paper!");
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>You Win! Scissors beat Paper!</div>";
         playerWins++;
     }
     else if ((playerSelection === 'rock') && (computerSelection === 'paper'))
     {
-        alert("You LOSE! Rock gets wrapped by Paper!");
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>You Lose! Paper beats Rock!</div>";
         computerWins++;
     }
     else if ((playerSelection === 'paper') && (computerSelection === 'scissors'))
     {
-        alert("You LOSE! Paper gets cut by Scissors!")
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>You Lose! Scissors beat Paper!</div>";
         computerWins++;
     }
     else
     {
-        alert("You LOSE! Scissors gets smashed by Rock!");
+        comment.innerHTML = "<br/><div>You: " + toTitleCase(playerSelection) + "</div>"
+                            + "<div>Computer: " + toTitleCase(computerSelection) + "</div>"
+                            + "<br/><div>You Lose! Rock beats Scissors!</div>";
         computerWins++;
+    }
+
+    if (playerWins == 5 || computerWins == 5)
+    {
+        comment.textContent = "";
+        announceWinner();
     }
 }
 
-function game()
+function announceWinner()
 {
     if (playerWins > computerWins)
     {
-        alert(
-            "You: " + playerWins +
-            "\nComputer: " + computerWins +
-            "\n\nCongratulations! You're the WINNER!"
-        )
+        alert("Congratulations! You're the WINNER!");
     }
     else if(playerWins < computerWins)
     {
-        alert(
-            "You: " + playerWins +
-            "\nComputer: " + computerWins +
-            "\n\nComputer is the WINNER!"
-        )
+        announceWinnerlert("Computer Wins! Better luck next time.");
     }
     else
     {
-        alert(
-            "You: " + playerWins +
-            "\nComputer: " + computerWins +
-            "\n\nDRAW!"
-        )
+        alert("It's a DRAW! Good Fight!");
     }
+}
+
+function reset()
+{
+    playerWins = 0;
+    computerWins = 0;
+
+    comment.textContent = "";
+    winner.textContent = "";
+}
+
+function toTitleCase(str)
+{
+    ans = "";
+    ans += str[0].toUpperCase();
+    for (let i=1; i<str.length; i++)
+    {
+        if (str[i-1] == ' ')
+        {
+            ans += str[i].toUpperCase();
+        }
+        else
+        {
+            ans += str[i];
+        }
+    }
+    return ans;
 }
