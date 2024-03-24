@@ -3,14 +3,59 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissors!</title>
+        <link rel="stylesheet" href="./style.css">
         <script src="script.js" defer></script>
     </head>
 
     <body>
-        <section id="btn">
-            <button id="rock">ROCK</button>
-            <button id="paper">PAPER</button>
-            <button id="scissors">SCISSORS</button>
-        </section>
+        <header>
+            <h1>Rock-Paper-Scissors!</h1>
+        </header>
+
+        <hr id="line">
+
+        <main>
+            <section class="element score">
+                <table>
+                    <thead>
+                        <th>Player Score</th>
+                        <th>Computer Score</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="element" id="btn">
+                <button id="rock">ROCK</button>
+                <button id="paper">PAPER</button>
+                <button id="scissors">SCISSORS</button>
+            </section>
+
+            <section class="element result">
+                <div id="comment"></div>
+            </section>
+            <!-- <section id="panel">
+                <section class="player">
+                    <h2>Player Score</h2>
+                </section>
+                <section class="computer">
+                    <h2>Computer Score</h2>
+                </section>
+            </section>
+
+            <section id="btn">
+                <button id="rock">ROCK</button>
+                <button id="paper">PAPER</button>
+                <button id="scissors">SCISSORS</button>
+            </section>
+
+            <section id="comment"></section> -->
+        </main>
     </body>
 </html>
