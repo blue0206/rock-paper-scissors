@@ -1,5 +1,5 @@
 # rock-paper-scissors
 Project: Rock Paper Scissors; given by The Odin Project.
 
-Check it out by clicking the link!
+Check it out by clicking the link and reloading the page!
 https://blue0206.github.io/rock-paper-scissors/
