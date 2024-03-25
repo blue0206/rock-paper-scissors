@@ -12,15 +12,18 @@ body
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    min-height: 98vh;
+    min-width: 98vw;
 }
 
 header
 {
-    flex-grow: 1;
+    flex-grow: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-height: 150px;
 }
 
 h1
@@ -33,11 +36,12 @@ h1
     border-width: 8px;
     border-style: ridge;
     border-color: rgb(216, 216, 253) rgb(192, 97, 97);
+    text-align: center;
 }
 
 #line
 {
-    width: 38%;
+    min-width: 38%;
     border: 4px groove black;
     border-radius: 11px;
     margin-bottom: 11px;
@@ -45,9 +49,11 @@ h1
 
 main
 {
-    flex-grow: 16;
+    flex-grow: 8;
     align-self: center;
-    width: 38%;
+    display: flex;
+    flex-direction: column;
+    min-width: 38%;
 }
 
 .element
@@ -60,17 +66,19 @@ main
 
 .element.score
 {
+    flex-grow: 4;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 25px;
-    height: 220px;
+    min-height: 220px;
+    max-height: 350px;;
 }
 
 table
 {
-    height: 98%;
-    width: 98%;
+    min-height: 200px;
+    min-width: 320px;
 }
 
 table, th, td
@@ -95,7 +103,9 @@ td
 
 .element#btn
 {
-    height: 150px;
+    flex-grow: 2;
+    min-height: 150px;
+    max-height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,7 +129,9 @@ button
 
 .element#result
 {
-    height: 350px;
+    flex-grow: 5;
+    min-height: 450px;
+    max-height: 450px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -130,8 +142,8 @@ button
 
 footer
 {
-    flex-grow: 1;
-    height: 80px;
+    flex-grow: 2;
+    max-height: 80px;
     margin-bottom: 0px;
     width: 100%;
     border: 1px solid black;
@@ -143,6 +155,7 @@ footer
     justify-content: center;
     align-items: center;
     font-size: 16px;
+    padding: 16px;
 }
 
 a
