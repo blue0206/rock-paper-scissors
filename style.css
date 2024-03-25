@@ -95,8 +95,9 @@ td
 
 .element#btn
 {
-    height: 65px;
+    height: 150px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 38px;
@@ -113,6 +114,7 @@ button
     border-color: coral;
     background-color: rgb(18, 125, 201);
     color: rgb(255, 255, 255);
+    margin: 0px 16px 0px 16px;
 }
 
 .element#result

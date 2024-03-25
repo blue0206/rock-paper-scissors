@@ -22,6 +22,9 @@ btn.addEventListener("click", (e) => {
     case "scissors":
         playRound("scissors", getComputerChoice());
         break;
+    case "reset":
+        reset();
+        break;
   }
 });
 
@@ -165,6 +168,8 @@ function reset()
 {
     playerWins = 0;
     computerWins = 0;
+    player.textContent = playerWins;
+    computer.textContent = computerWins;
 
     let commentList = document.querySelectorAll('.item');
     for (let i=0; i<commentList.length; i++)
